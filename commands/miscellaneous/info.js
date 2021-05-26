@@ -44,6 +44,21 @@ module.exports.config = {
                 name: 'Server Info',
                 value: `Cores: ${os.cpus().length}`,
                 inline: true
+            },
+            {
+                name: '<:developer:845658260559626280> Owners',
+                value: `<@377509867923046404>,<@282969837490405376>`,
+                inline: true, 
+            },
+            {
+                name: '<:developer:845658260559626280> Developer',
+                value: `<@788821492611416084>`,
+                inline: true, 
+            },
+            {
+                name: '<:developer:845658305975418890> Staff',
+                value: ` <@470866478720090114>, <@582972374551494668>, <@531618779369832468>`,
+                inline: true
             }
         )
         .setFooter(`Created By: ${message.author.tag}`, message.author.displayAvatarURL())

@@ -1,4 +1,4 @@
-const { Client, Collection, MessageEmbed, Discord} = require("discord.js");
+const { Client, Collection, MessageEmbed} = require("discord.js");
 const ytdl = require('ytdl-core');
 const chalk = require('chalk');
 const { token } = require("./botconfig.json");
@@ -9,6 +9,7 @@ const jsonfile = require('jsonfile');
 const { green } = require("./colours.json")
 const mongoose = require('mongoose')
 const bot = new Client();
+const logger = require("discordjs-logger");
 
 
 
@@ -50,9 +51,82 @@ bot.on('messageDelete', async message => {
 });
 
 
+bot.on("channelCreate", function (channel) {
+  const channelDeleteId = channel.id;
+const sChannel = channel.guild.channels.cache.find(channel => channel.name === 'audit-logs');
+channel.guild.fetchAuditLogs({'type': 'CHANNEL_CREATE'}) 
+// find the log entry for this specific channel
+.then( logs => logs.entries.find(entry => entry.target.id == channelDeleteId) ) 
+.then (entry => {
+  // get the author of the deletion
+  author = entry.executor;
+      sChannel.send(`**[CHANNEL CREATED]** | **${author.tag}**
 
+**Created by:** ${author}
+**Channel:** ${channel} (**ID:** (${channel.id  }))
+`)})
 
+  
+});
+bot.on("channelDelete", function (channel) {
+  const channelDeleteId = channel.id;
+const sChannel = channel.guild.channels.cache.find(channel => channel.name === 'audit-logs');
+channel.guild.fetchAuditLogs({'type': 'CHANNEL_DELETE'}) 
+// find the log entry for this specific channel
+.then( logs => logs.entries.find(entry => entry.target.id == channelDeleteId) ) 
+.then (entry => {
+  // get the author of the deletion
+  author = entry.executor;
+sChannel.send(`**[CHANNEL DELETED]** | $**{author.tag}**
 
+**Deleted by:** ${author}
+**Channel:** ${channel.name} (**ID:** (${channel.id}))
+`) })
+});
 
+bot.on("inviteCreate", function (invite) {
+
+      const sChannel = invite.guild.channels.cache.find(channel => channel.name === 'audit-logs');
+      const inviter = bot.users.cache.get(invite.inviter.id);
+sChannel.send(`**[INVITE CREATED]** | **${inviter.tag}**
+
+**Created by:** ${inviter}
+**Invite URL:** ${invite.url}
+**Invite Code:** ${invite.code}
+      
+      `)
+});
+bot.on("inviteDelete", function (invite) {
+  const sChannel = invite.guild.channels.cache.find(channel => channel.name === 'audit-logs');
+
+sChannel.send(`**[INVITE DELETED]** | 
+
+**Invite URL:** ${invite.url}
+**Invite Code:** ${invite.code}
+  
+  `)});
+
+  bot.on("guildBanAdd", function (guild, user) {
+
+        const sChannel = guild.channels.cache.find(channel => channel.name === 'audit-logs');
+
+sChannel.send(`**[BAN]** | ${user.tag}
+        
+**User:** ${user}
+
+          
+`)
+});
+
+bot.on("guildBanRemove", function (guild, user) {
+  
+  const sChannel = guild.channels.cache.find(channel => channel.name === 'audit-logs');
+
+  sChannel.send(`**[UNBANNED]** | ${user.tag}
+  
+**User:** ${user}
+
+    
+    `)});
 
 bot.login(token);

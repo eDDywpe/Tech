@@ -9,7 +9,7 @@ const jsonfile = require('jsonfile');
 const { green } = require("./colours.json")
 const mongoose = require('mongoose')
 const bot = new Client();
-const logger = require("discordjs-logger");
+
 
 
 

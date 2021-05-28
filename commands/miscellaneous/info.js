@@ -1,10 +1,11 @@
 const { MessageEmbed } = require('discord.js')
 const os = require('os')
-const bot = require('client')
+const bot = new Client();
+
 
 module.exports.config = {
         name: "info",
-        aliases: ["info"],
+        aliases: ["info", "botinfo"],
         description: "Sends bots info from database!",
         usage: "-info",
         accessableby: "Members"

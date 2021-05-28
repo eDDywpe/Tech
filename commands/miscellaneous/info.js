@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js')
+const { bot } = require('../../index.js')
 const os = require('os')
-const bot = new Client();
+
 
 
 module.exports.config = {

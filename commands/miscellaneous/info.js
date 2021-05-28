@@ -64,7 +64,7 @@ module.exports.config = {
                 inline: true
             }
         )
-        .setFooter(`Created By: ${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter(`Requested By: ${message.author.tag}`, message.author.displayAvatarURL())
 
     await message.channel.send(embed)
 }

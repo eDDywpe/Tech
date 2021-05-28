@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 const os = require('os')
+const bot = require('client')
 
 module.exports.config = {
         name: "info",

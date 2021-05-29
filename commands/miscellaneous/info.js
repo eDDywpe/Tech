@@ -1,5 +1,4 @@
 const { MessageEmbed } = require('discord.js')
-const { bot } = require('../../index.js')
 const os = require('os')
 
 

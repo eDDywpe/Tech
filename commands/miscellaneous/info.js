@@ -48,7 +48,7 @@ module.exports.config = {
                 inline: true
             },
             {
-                name: '<:developer:845658260559626280> Owners',
+                name: '<:owner:848802779593310218> Owner',
                 value: `<@377509867923046404>, <@282969837490405376>`,
                 inline: true, 
             },

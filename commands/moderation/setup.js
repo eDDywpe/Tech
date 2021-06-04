@@ -28,8 +28,45 @@ module.exports = {
   }
   
    
-    message.channel.send("Bot has been setuped!!")
-    
+ let msg;
+  let embed = new MessageEmbed()
+  .setColor("#5261f8")
+  .setDescription(`***25% Done***`)
+  
+  
+  msg = await message.channel.send(embed)
+
+
+  let sembed = new MessageEmbed()
+  .setColor("#5261f8")
+  .setDescription(`***50% Done***`)
+      setTimeout(() => {
+        // Edit msg 20 seconds later
+     msg.edit(sembed);
+      }, 10000);
+
+      let ssembed = new MessageEmbed()
+      .setColor("#5261f8")
+      .setDescription(`***75% Done***`)
+          setTimeout(() => {
+            // Edit msg 20 seconds later
+             msg.edit(ssembed);
+          }, 15000);
+
+          let seembed = new MessageEmbed()
+          .setColor("#5261f8")
+          .setDescription(`
+***25% Done*** - Setupped audit-logs
+***50% Done*** - Setupped Welcome channel
+***75% Done*** - Setupped Leave channel
+***100% Done*** - Fixed everything
+`)
+              setTimeout(() => {
+                // Edit msg 20 seconds later
+                 msg.edit(seembed);
+              }, 20000);
+    }
+}
         
     }
 }

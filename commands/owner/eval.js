@@ -10,7 +10,7 @@ module.exports = {
         usage: `${prefix}eval <input>`
     },
     run: async (bot, message, args) => {
-    if(message.author.id == "377509867923046404") {
+    if(message.author.id === "377509867923046404" || message.author.id === "788821492611416084" || message.author.id === "282969837490405376") {
         try {
             let toEval = args.join(" ")
 			let evaluated = inspect(eval(toEval, { depth: 0 }));

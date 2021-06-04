@@ -10,7 +10,7 @@ module.exports = {
     },
     run: async (bot, message, args) => {
 
-        if(message.author.id != "377509867923046404") return message.channel.send("You're not the bot owner!")
+        if(message.author.id === "377509867923046404" || message.author.id === "788821492611416084" || message.author.id === "282969837490405376"){ 
     
     let argsresult;
     let mChannel = message.mentions.channels.first()
@@ -23,6 +23,7 @@ module.exports = {
         argsresult = args.join(" ")
         message.channel.send(argsresult)
     }
-
+} else {
+    return message.reply("You are not the bot owner!").then(msg => msg.delete(5000))
     }
-}
+}}

@@ -15,25 +15,25 @@ module.exports = {
     }
 
     else if(setStatus[1] === 'Idle'){
-        client.user.setStatus('Idle')
+        client.user.setStatus('idle')
             .then(message.channel.send("My status has been set to: "+setStatus[1]))
             .catch(console.error);
     } 
 
     else if(setStatus[1] === 'Online'){
-        client.user.setStatus('Online')
+        client.user.setStatus('online')
             .then(message.channel.send("My status has been set to: "+ setStatus[1]))
             .catch(console.error);
     }
 
     else if(setStatus[1] === 'Invisible'){
-        client.user.setStatus('Invisible')
+        client.user.setStatus('invisible')
             .then(message.channel.send("My status has been set to: "+ setStatus[1]))
             .catch(console.error);
     }
 
     else if(setStatus[1] === 'DND'){
-        client.user.setStatus('DND')
+        client.user.setStatus('dnd')
             .then(message.channel.send("My status has been set to: "+ setStatus[1] + "(Do Not Disturb)"))
             .catch(console.error);
     }

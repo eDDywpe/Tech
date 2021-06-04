@@ -9,7 +9,7 @@ module.exports = {
     },
     run: async (client, message, args) => {
     const setStatus = message.content.split(' ');
-    if(message.author.id === "377509867923046404" || message.author.id === "788821492611416084" || message.author.id === "282969837490405376"){ 
+    if(message.author.id != "377509867923046404") return message.channel.send("You're not the bot owner!")
     if(!message.member.hasPermission("ADMINISTRATOR")){
         return message.channel.send("You don't have the permissions to use this command!");
     }
@@ -41,6 +41,5 @@ module.exports = {
     else{
             return message.channel.send("I could not set my status please type one of the following status: idle, online, invisible, dnd (do not disturb)");
     }
-    } else{
- return message.reply("You are not the bot owner!").then(msg => msg.delete(5000)) }}
+
 }}

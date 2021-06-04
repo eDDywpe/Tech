@@ -41,6 +41,6 @@ module.exports = {
     else{
             return message.channel.send("I could not set my status please type one of the following status: idle, online, invisible, dnd (do not disturb)");
     }
-else{
+    } else{
  return message.reply("You are not the bot owner!").then(msg => msg.delete(5000)) }}
 }}

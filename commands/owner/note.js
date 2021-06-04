@@ -3,7 +3,7 @@ module.exports = {
     config: {
         name: "note",
         description: "sends a message that was inputted to a channel",
-        usage: "note",
+        usage: "-note",
         category: "owner",
         accessableby: "Bot Onwer",
         aliases: ["note"]

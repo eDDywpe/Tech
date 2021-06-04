@@ -23,6 +23,6 @@ module.exports = bot => {
         .set("high", 0.25);
 
     let activities = [ `${bot.guilds.cache.size} servers!`, `${bot.channels.cache.size} channels!`, `${bot.users.cache.size} users!` ], i = 0;
-    setInterval(() => bot.user.setActivity(`${bot.guilds.cache.size} servers | -help`, { type: "WATCHING" }), 15000)
+    setInterval(() => bot.user.setActivity(`-help | -setup`, { type: "WATCHING" }), 15000)
 
 };

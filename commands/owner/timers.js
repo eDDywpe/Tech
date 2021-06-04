@@ -6,8 +6,8 @@ const { ownerid, ownersid } = require("../../botconfig.json");
 module.exports = {
     config: {
         name: "timer",
-        description: "sets a timer for eDDy!",
-        usage: "s!timer",
+        description: "sets a timer for Owners!",
+        usage: "-timer",
         category: "owner",
         accessableby: "Bot owner",
         aliases: ["timers"]
@@ -15,7 +15,7 @@ module.exports = {
 
 run: async (bot, message, args) => {
     
-    if(message.author.id != "377509867923046404") return message.channel.send("You're not the bot owner!")
+    if(message.author.id === "377509867923046404" || message.author.id === "788821492611416084" || message.author.id === "282969837490405376"){
 
     if(!args[0]){
         return message.channel.send(`You did not specify the amount of time you wish to set a timer for!`)
@@ -47,10 +47,11 @@ run: async (bot, message, args) => {
         .setTitle(`Timer finished in guild ${message.guild.name}..`)
         .setColor("#f9f9f6")
         .setDescription(`⌛ Timer: ${args[0]}\n⌛ Timer set for: ${reason}`)
-        .setFooter("©️ eDDy#5079", bot.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }));
+        .setFooter("©️ eDDy#1590", bot.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }));
         message.author.send(Embed)
         Timers.delete(message.author.id+" G "+message.guild.name)
     }, ms(args[0]));
     
-
-}}
+} else {
+    return message.reply("You are not the bot owner!").then(msg => msg.delete(5000))
+}}}

@@ -45,7 +45,7 @@ run: async (bot, message, args) => {
     setTimeout(() => {
         let Embed = new MessageEmbed()
         .setTitle(`Timer finished in guild ${message.guild.name}..`)
-        .setColor("#f9f9f6")
+        .setColor("#5261f8")
         .setDescription(`⌛ Timer: ${args[0]}\n⌛ Timer set for: ${reason}`)
         .setFooter("©️ eDDy#1590", bot.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }));
         message.author.send(Embed)

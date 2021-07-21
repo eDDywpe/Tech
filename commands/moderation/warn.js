@@ -18,7 +18,7 @@ module.exports = {
       //let logchannel = message.guild.channels.cache.find(x => x.name = 'logs');
       if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("❌**Error:** You don't have the **Kick Members** permission!");
       if (message.mentions.users.size < 1) return message.reply('You must mention someone to warn them.').catch(console.error);
-      if (message.mentions.users.first().id === message.author.id) return message.reply('You cant mute urself!');
+      if (message.mentions.users.first().id === message.author.id) return message.reply('You cant warn urself!');
       if (message.mentions.users.first().id === "377509867923046404") return message.reply("You can't warn Super-admin");
       //if (!logchannel) return message.channel.send('I cannot find a logs channel');
       if (reason.length < 1) reason = 'No reason supplied.';

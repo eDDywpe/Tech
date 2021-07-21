@@ -27,7 +27,7 @@ module.exports = {
              //let duration = moment.duration(bot.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
              let embedStats = new Discord.MessageEmbed()
             .setTitle("*** Stats ***")
-            .setColor("#f9f9f6")
+            .setColor("#5261f8")
             .addField("• Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
             .addField("• Users", `${bot.users.cache.size}`, true)
             .addField("• Servers", `${bot.guilds.cache.size}`, true)
@@ -38,7 +38,7 @@ module.exports = {
             .addField("• CPU usage", `\`${percent.toFixed(2)}%\``,true)
             .addField("• Arch", `\`${os.arch()}\``,true)
             .addField("• Platform", `\`\`${os.platform()}\`\``,true)
-            .setFooter("MELLO stats")
+            .setFooter("Tech Stats")
     
             message.channel.send(embedStats)
             })

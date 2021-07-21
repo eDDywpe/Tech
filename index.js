@@ -1,5 +1,4 @@
 const { Client, Collection, MessageEmbed, Discord} = require("discord.js");
-const { message, lineReply } = require('discord-reply');
 const ytdl = require('ytdl-core');
 const chalk = require('chalk');
 const { token } = require("./botconfig.json");

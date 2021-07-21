@@ -1,12 +1,14 @@
 const { Client, Collection, MessageEmbed} = require("discord.js");
+const ytdl = require('ytdl-core');
+const chalk = require('chalk');
+const { token } = require("./botconfig.json");
+const settings = require("./botconfig.json");
+const random = require('random');
 const fs = require('fs');
 const jsonfile = require('jsonfile');
-const { message, lineReply } = require('discord-reply');
-const { token } = require("./botconfig.json");
-const moment = require('moment')
+const { green } = require("./colours.json")
 const mongoose = require('mongoose')
 const bot = new Client();
-require('discord-buttons')(bot)
 
 
 
@@ -126,26 +128,6 @@ bot.on("guildBanRemove", function (guild, user) {
     
     `)});
 
-bot.on('clickButton', async (button) => {
-    if (button.id === 'hehe') {
-        await button.clicker.fetch()
-        if(!button.clicker.member.roles.cache.has('851676282407616543')) return button.reply.send("You have no permission to use this.", true)
-        const approvedEmbed = new MessageEmbed()
-            .setTitle('**Bug has been fixed!**')
-            
-            .setAuthor(`${button.clicker.user.username}#${button.clicker.user.discriminator}`, button.clicker.user.displayAvatarURL({ dynamic: true}))
-            .setThumbnail(button.message.embeds[0].thumbnail.url)
-            .setColor('#24fc03')
-            .addField("**Author:**", button.message.embeds[0].fields[0].value)
-            .addField("**Guild:**", button.message.embeds[0].fields[1].value)
-            .addField("**Report of this bug:**", button.message.embeds[0].fields[2].value)
-            .addField("**Fixed by**", `✅ ${button.clicker.user}  fixed this bug.`, true)
-            .setTimestamp();
-          
-        button.message.edit('', { embed: approvedEmbed});
-        button.message.edit({ components: [] })  
-    
-    }
-});
+
 
 bot.login(token);

@@ -13,15 +13,14 @@ const mongoose = require('mongoose')
 const bot = new Client();
 require('discord-buttons')(bot)
 
-
-
-["aliases", "commands"].forEach(x => bot[x] = new Collection());
-["console", "command", "event"].forEach(x => require(`./handlers/${x}`)(bot));
-
 mongoose.connect(settings.mongodbURL, { useNewUrlParser: true, useUnifiedTopology: true   }, err => {
   if (err) return console.error(err);
   console.log(chalk.bgGreen.black('Connected to MongoDB database!'));
 });
+
+["aliases", "commands"].forEach(x => bot[x] = new Collection());
+["console", "command", "event"].forEach(x => require(`./handlers/${x}`)(bot));
+
 
 bot.on('messageDelete', async message => {
     const logs = message.guild.channels.cache.find(channel => channel.name === "audit-logs");

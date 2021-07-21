@@ -1,15 +1,12 @@
 const { Client, Collection, MessageEmbed} = require("discord.js");
-const ytdl = require('ytdl-core');
-const chalk = require('chalk');
-const { token } = require("./botconfig.json");
-const settings = require("./botconfig.json");
-const random = require('random');
 const fs = require('fs');
 const jsonfile = require('jsonfile');
-const { green } = require("./colours.json")
+const { message, lineReply } = require('discord-reply');
+const { token } = require("./botconfig.json");
+const moment = require('moment')
 const mongoose = require('mongoose')
 const bot = new Client();
-
+require('discord-buttons')(bot)
 
 
 

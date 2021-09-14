@@ -25,12 +25,9 @@ module.exports.run = async (bot, message, args) =>{
         .setColor("#5261f8")
         .setAuthor(`Tech commands`, bot.user.displayAvatarURL())
         .setThumbnail(bot.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
-        .addField(`**Fun**`, "``-funcmds or -funcommands``", true)
-        .addField("**Moderation**", "``-modcmds or -modcommands``", true)
-        .addField("**Image**", "``-image``", true)
-        .addField("**Other**", "``-othercmds or -othercommands``", true)
-        .addField("**Owner**", "``-ownercmds or -ownercommands``", true)
-        .addField("**Future**", "``-futurecmds or -futurecommands``", true)
+        .addDescription(`Tech is now not available due to Replit's STATUS
+You can view their status at (Here)[https://status.replit.com/]
+`)
         message.channel.send(Sembed)
     }
     

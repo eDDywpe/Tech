@@ -1,6 +1,6 @@
 {
-    "token": "ODM1NTI2NDI3NjYyNDgzNTI2.YIQunw.1q0XexaFACm_H8XM7OpkyFDOcu4",
+    "token": "",
     "prefix": "-",
-    "mongodbURL": "mongodb+srv://Junkie:Likionjeri12@cluster0.69wjp.mongodb.net/DiscordDB?retryWrites=true&w=majority",
+    "mongodbURL": "",
     "owners": ["377509867923046404"]
 }
